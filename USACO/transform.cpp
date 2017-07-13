@@ -95,3 +95,19 @@ int trans(char a[10][10], char b[10][10])
 
 	return 7;
 }
+/*
+for rotating 90
+old[i][j] = new[j][n-1-i]
+
+for rotating 180
+old[i][j] = new[n-1-i][n-1-j]
+
+for rotating 270(anti-clockwise 90)
+old[i][j] = new[n-1-j][i]
+
+for reflection around a vertical line
+old[i][j] = new[i][n-1-j]
+
+for reflectio n around a horizontal line
+old[i][j] = new[n-1-i][j]
+*/
