@@ -63,3 +63,15 @@ int main()
 	cout<<busy<<" "<<idle<<endl;
 	return 0;
 }
+
+/*
+one technique of dealing with overlaps is to modify the original data directly, meaning change them to the actual data of overlaping
+situation. 
+The way of calculating idle is relatively simple. After sorting, idle space can only exist between two adjacent intervals.
+*/
+
+/*
+Another way USACO provides is to consider all the time like a read-write lock, but a stack. To maintain an array of time, which is marked as
+start or end(1 or -1) implemented by struct. When the queue is empty, next_time - current_time = idle_time. When the queue is not empty,
+busy_time=current_time - earliest_time_in_stack
+*/
