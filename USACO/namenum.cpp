@@ -74,4 +74,12 @@ int main()
 	return 0;
 }	
 
+/*
+This solution reverse the problem, i.e. translated the dict.txt and see if it matches the original number. It is stable yet relatively
+slow. One better way to do translation is use letter as index, map['A']=map['B']=map['C']=1
+*/
 
+/*
+In addition, binary search can be used to when try to locate the word in the dict.txt since the dict.txt is sorted. Yet this approach
+is relatively dangerous considering it is hard to debug a binary search and O(wlist) should be fast enough.
+*/
