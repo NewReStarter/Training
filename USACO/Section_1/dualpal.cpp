@@ -79,3 +79,6 @@ string r(string s)
 		tmp+=s[i];
 	return tmp;
 }
+/*
+Use same idea as palsquare.cpp. Adding a flag to mark the number of presentations matches the requirement
+*/
