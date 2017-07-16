@@ -82,3 +82,7 @@ string r(string s)
 /*
 Use same idea as palsquare.cpp. Adding a flag to mark the number of presentations matches the requirement
 */
+/*
+The offcial solution provide another small technique, using a array of char to record the number in different base, c[10] = 'A'
+. In addition, my solution can be enhanced using pass by reference.
+*/
