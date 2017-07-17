@@ -54,3 +54,10 @@ int main()
 	return 0;
 
 }
+/*
+One thing I do not understand from begining is what if the first n-th cheapest farmers cannot provide enough units of milk. Then I realize
+that it is not the case as I suppoesd. m denotes the total number of farmers, which is sufficient to get n units of milk. Hence, reading
+carefully is important. The way I think it, it would become a Bin Packing Dynamic Programming Question.
+
+
+*/
