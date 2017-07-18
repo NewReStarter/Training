@@ -52,3 +52,9 @@ int main()
 	return 0;
 
 }
+
+/* Think in opposite way, i.e. the minnium lengtrh covers means the maxiunm idle length leaves idle. Hence we put all idle length in
+an array and use len to subtract the top m-1th idle length to get the min len. len = max - min +1, hence +1 when output.
+*/
+
+/*The official solution is the same */
