@@ -63,3 +63,6 @@ inline bool isValid(int i,int j,int k,int x,int y)
 		}
 	else return false;
 }
+/*
+Brute-force search all circumstances. Try using fin and fout(OO way of file IO) provided by fstream.
+*/
