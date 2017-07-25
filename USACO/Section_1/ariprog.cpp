@@ -76,3 +76,10 @@ int main()
 
 	return 0;
 }
+
+/*
+A few things to remember. First, compile with c++11 using -std=c++11, this command is extremely useful when using some c++11 feature.
+This solution also reviews how to do mutilple keyword sorting. In addition, it is a good solution to show how pre-calculation works in
+brute-forece. The major problem I encounbter with when dealing with this problem is that memory indexing problem, it violates 
+unaccessible memory with index(although I still do not know how.) The idea is that when doing competing, it is better to open a bigger array
+*/
