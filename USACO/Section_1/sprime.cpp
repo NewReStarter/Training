@@ -51,5 +51,7 @@ void search(int x)
 			search(x*10+i);
 	}
 	return ;
-
 }
+/*
+easy dfs.
+*/
