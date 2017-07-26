@@ -71,3 +71,8 @@ void DFS(int a1,int b1,int c1)
 		DFS(a1+c1-c,b1,c);
 	return;
 }
+/*
+simple dfs. Use v[21][21][21] to record if visited such situation, if so, return. Use e[21] to record all possible c. There are only 
+six kind of ways to pour. a->b a->c b->a b->c c->a c->b, each situation has two sub-situation, i.e. if poured bucket is full or not.
+Hence the dfs is constructed.
+*/
