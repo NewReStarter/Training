@@ -36,3 +36,6 @@ void solve()
 		}
 	cout<<a[1][1]<<endl;
 }
+/*
+dp 101. bottom up
+*/
