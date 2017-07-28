@@ -66,3 +66,7 @@ void produce(int a,int b)
 					if(tmp>=a && tmp<=b && isPrime(tmp)) cout<<tmp<<endl;
 				}
 }
+/*
+Even using Euler's algorithm to generate prime will TLE since the upper bound is too high. Hence, instead, generate pali first then
+decide whether it is a prime or not.
+*/
