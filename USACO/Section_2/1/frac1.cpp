@@ -60,3 +60,7 @@ int main()
 		cout<<a[i].p<<endl;
 	return 0; 
 }
+
+/*
+notice that a double can not be divided 0, or float point exception
+*/
