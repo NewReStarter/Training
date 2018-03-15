@@ -66,7 +66,7 @@ int main()
 		{
 			if(q[head].x==tx && q[head].y==ty)
 			{
-				printf("Case%d: %d\n",k,q[head].c);
+				printf("Case %d: %d\n",k,q[head].c);
 				break;
 			}
 			for(int i = 0; i < 8; i++)
@@ -86,7 +86,7 @@ int main()
 			head++;
 		}
 		if(head == rear)
-			printf("Case%d: IMPOSSIBLE\n",k);
+			printf("Case %d: IMPOSSIBLE\n",k);
 	}
 	return 0;
 
