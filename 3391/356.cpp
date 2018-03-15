@@ -1,3 +1,4 @@
+// constant constraint
 #include<iostream>
 #include<cmath>
 #include<cstdio>
@@ -31,15 +32,18 @@ int main()
 	int n,m,x,y,v;
 	while(true)
 	{
+		memset(parent,0,sizeof(parent));
+		memset(ans,0,sizeof(ans));
 		cin>>n>>m;
 		if(n == 0 && m == 0) break;
-		int maxn = 0;
+		int maxn = -2147483648;
 		int size = 0;
 	    for(int i = 1; i<=n; i++)
 	    {
 	    	parent[i] = i;
-	    	ans[i] = 0;
+	    	//ans[i] = 0;
 	    }
+
 		for(int i = 0; i < m; i++)
 		{
 			cin>>x>>y>>v;
