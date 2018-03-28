@@ -1,7 +1,7 @@
 # Training
 ### Learning accumulation of programming
 
-**Resources includes**
+**Resources include:**
 * Competitive programming
     * 3391
     * codeforces
