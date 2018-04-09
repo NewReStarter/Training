@@ -15,7 +15,7 @@
     - [x] [1753](https://github.com/NewReStarter/Training/tree/master/POJ/1753) 翻格子 枚举+DFS
     - [x] [2956](https://github.com/NewReStarter/Training/tree/master/POJ/2956) BFS打表(不优化会TLE)
 - 贪心
-    - [ ] [1328](https://github.com/NewReStarter/Training/tree/master/POJ/1328)
+    - [x] [1328](https://github.com/NewReStarter/Training/tree/master/POJ/1328) 贪心 二维问题转移到一维投影 区间上的贪心
     - [ ] [2109](https://github.com/NewReStarter/Training/tree/master/POJ/2109)
     - [ ] [2586](https://github.com/NewReStarter/Training/tree/master/POJ/2586)
 - 构造

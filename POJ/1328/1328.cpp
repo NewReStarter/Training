@@ -27,25 +27,36 @@ int main()
 			break;
 		++k;
 		ans = 0;
+		bool flag = 0;
 		for(i = 0; i < n; ++i)
 		{
 			cin>>x>>y;
-			tmp = sqrt((d*d)-(y*y));
+			int po = (d*d)-(y*y);
+			if(po < 0 || d < 0) flag = 1;
+			tmp = sqrt(po);
 			a[i].l = x - tmp;
 			a[i].r = x + tmp;
 		}
 		sort(a,a+n,cmp);
+		// for(i = 0; i < n; ++i)
+		// 	cout<<a[i].l<<" "<<a[i].r<<endl;
 		for(i = 0; i < n; ++i)
 		{
+			interval t = a[i];
+			// cout<<a[i].l<<" "<<a[i].r<<endl;
 			j = i + 1;
-			while(a[i].r >= a[j].l)
+			while(t.r >= a[j].l)
 			{
+				t.r = min(t.r,a[j].r);
 				++j;
 			}
-			ans++;
-			i = j;
+			++ans;
+			i = j-1;
 		}
-		cout<<"Case "<<k<<": "<<ans<<endl;
+		if(!flag)
+			cout<<"Case "<<k<<": "<<ans<<endl;
+		else
+			cout<<"Case "<<k<<": "<<"-1"<<endl;
 	}
 	return 0;
 }
