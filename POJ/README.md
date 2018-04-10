@@ -16,8 +16,8 @@
     - [x] [2956](https://github.com/NewReStarter/Training/tree/master/POJ/2956) BFS打表(不优化会TLE)
 - 贪心
     - [x] [1328](https://github.com/NewReStarter/Training/tree/master/POJ/1328) 贪心 二维问题转移到一维投影 区间上的贪心
-    - [ ] [2109](https://github.com/NewReStarter/Training/tree/master/POJ/2109)
-    - [ ] [2586](https://github.com/NewReStarter/Training/tree/master/POJ/2586)
+    - [x] [2109](https://github.com/NewReStarter/Training/tree/master/POJ/2109) 高中数学 有trick 但常规思路应该是大数乘法加二分的
+    - [x] [2586](https://github.com/NewReStarter/Training/tree/master/POJ/2586)唯一的难度在读不懂题  就枚举12个月对应的亏损或盈利情况就好
 - 构造
     - [ ] [3295](https://github.com/NewReStarter/Training/tree/master/POJ/3295)
 - 模拟
