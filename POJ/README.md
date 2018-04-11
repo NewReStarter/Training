@@ -19,7 +19,7 @@
     - [x] [2109](https://github.com/NewReStarter/Training/tree/master/POJ/2109) 高中数学 有trick 但常规思路应该是大数乘法加二分的
     - [x] [2586](https://github.com/NewReStarter/Training/tree/master/POJ/2586)唯一的难度在读不懂题  就枚举12个月对应的亏损或盈利情况就好
 - 构造
-    - [ ] [3295](https://github.com/NewReStarter/Training/tree/master/POJ/3295)
+    - [x] [3295](https://github.com/NewReStarter/Training/tree/master/POJ/3295)表达式压栈求值  没看出来哪里有构造  布尔代数  枚举
 - 模拟
     - [ ] [1068](https://github.com/NewReStarter/Training/tree/master/POJ/1068)
     - [ ] [2632](https://github.com/NewReStarter/Training/tree/master/POJ/2632)
