@@ -6,7 +6,7 @@
 using namespace std;
 
 const int N = 55;
-bool c[N][N];
+int c[N][N];
 int b[N][N],d[N][N];
 
 struct edge{

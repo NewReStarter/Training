@@ -1,9 +1,11 @@
 #include<iostream>
 #include<cstdio>
+#include<cmath>
 #include<cstring>
+#include <algorithm>
 using namespace std;
 
-void read(int& x)
+inline void read(int& x)
 {
     char c = getchar(); x = 0;
     while(c < '0' || c > '9') c = getchar();
@@ -11,60 +13,34 @@ void read(int& x)
 }
 
 const int MAXN = 1000100;  
-int a[MAXN],d[MAXN];
+int a[MAXN],dp[MAXN];
 int n;
 int i,j;
 
-int bsearch(int a, int l, int r)
+int lis()
+
 {
-	int mid;
-	while(l<=r)
-	{
-		mid = (l+r)/2;
-		if(d[mid] == a)
-		{
-			l = mid;
-			return l;
-		}
-		else if (d[mid] > a)
-		{
-			r = mid - 1;
-		}
-		else
-			l = mid + 1;
-	}
-	return l;
+    memset(dp, 0, sizeof(int)*n);
+    int len = 1;
+    dp[0] = a[0];
+    for (int i = 1; i < n; ++i)
+    {
+        int pos = max(lower_bound(dp, dp + len, a[i]) - dp,upper_bound(dp, dp + len, a[i]) - dp );
+        dp[pos] = a[i];
+        len = max(len, pos + 1);
+    }
+    return len;
 }
-
-int lnds()
-{
-	memset(d,0,sizeof(d));
-	d[1] = a[0];
-	int len = 1;
-	for(i = 0; i < n; i++)
-	{
-		if(a[i] >= d[len])
-		{
-			d[++len] = a[i];
-		}
-		else
-		{
-			j = bsearch(a[i],1,len);
-			d[j] = a[i];
-		}
-	}
-	return j;
-}
-
-
 
 int main()
 {
 	while(scanf("%d",&n)!=EOF)
 	{
 		for(i = 0; i < n; i++)
+		{
 			read(a[i]);
-		cout<<lnds()<<endl;
+		}
+		cout<<lis()<<endl;
 	}
 	return 0;
 }
