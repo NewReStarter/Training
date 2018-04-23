@@ -35,4 +35,18 @@
     - [ ] [2253](https://github.com/NewReStarter/Training/tree/master/POJ/2253)
     - [ ] [1125](https://github.com/NewReStarter/Training/tree/master/POJ/1125)
     - [ ] [2240](https://github.com/NewReStarter/Training/tree/master/POJ/2240)
+- 最小生成树
+    - [ ] [1789](https://github.com/NewReStarter/Training/tree/master/POJ/1789)
+    - [ ] [2485](https://github.com/NewReStarter/Training/tree/master/POJ/2485)
+    - [ ] [1258](https://github.com/NewReStarter/Training/tree/master/POJ/1258)
+    - [ ] [3026](https://github.com/NewReStarter/Training/tree/master/POJ/3026)
+- 拓扑排序
+    - [ ] [1094](https://github.com/NewReStarter/Training/tree/master/POJ/1094)
+- 二分图匹配
+    - [ ] [3041](https://github.com/NewReStarter/Training/tree/master/POJ/3041)
+    - [ ] [3020](https://github.com/NewReStarter/Training/tree/master/POJ/3020)
+- 网络流
+    - [ ] [1459](https://github.com/NewReStarter/Training/tree/master/POJ/3041)
+    - [ ] [3436](https://github.com/NewReStarter/Training/tree/master/POJ/3020)
+
 
