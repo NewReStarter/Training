@@ -5,16 +5,16 @@
 #include<string>
 using namespace std;
 
-char cal[200];
+char cal[2000];
 int len;
 int pos;
 struct stackchar{
-	char c[500];
+	char c[1000];
 	int bot;
 }s1,s2;   //s1 -> operator   s2 -> operand
 
 struct stackint{
-	int v[500];
+	int v[1000];
 	int bot;
 }s3;
 
@@ -114,9 +114,9 @@ int main()
 				s1.bot--;
 		}
 
-		for(int i = 1; i<=s2.bot ; i++)
-	     	cout<<s2.c[i];
-		cout<<endl;
+		// for(int i = 1; i<=s2.bot ; i++)
+	 //     	cout<<s2.c[i];
+		// cout<<endl;
 		pos = 1;
 		int sum = 0;
 		while(pos<=s2.bot)

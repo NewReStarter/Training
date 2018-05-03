@@ -2,6 +2,7 @@
 #include<cstdio>
 #include<cstring>
 #include<algorithm>
+#include<vector>
 using namespace std;
 
 int n,m;
@@ -22,6 +23,9 @@ struct Point
 	Point operator - (Point A){  
         return Point(x-A.x, y-A.y);  
     }  
+    Point operator + (Point A){
+    	return Point(x+A.x, y+A.y);
+    }
 };
 Point a[MAXN];
 Point ch[MAXN];
@@ -29,57 +33,82 @@ Point ch[MAXN];
 inline bool cmp(const Point& p1, const Point& p2) {return p1.x < p2.x || (p1.x==p2.x && p1.y < p2.y);}
 
 inline int det(Point a, Point b) {return a.x*b.y-a.y*b.x; }
-
-void convex_cal()
+inline int dot(Point a, Point b) {return a.x*b.x+a.y*b.y; }
+bool onLine(Point p, Point a, Point b)
 {
-	m = 0;
+	return (det(a-p,b-p)==0 && dot(a-p,b-p) < 0);
+}
+
+int P,R;
+vector<Point> p,convex;
+
+vector<Point> convexHull()
+{
+	int n = p.size();
+	vector<Point> point(n+1);
+
+	sort(p.begin(),p.end(),cmp);
+	int m = 0;
 	for(int i = 0; i < n; ++i)
 	{
-		while(m>1 && det(ch[m-1]-ch[m-2], a[i]-ch[m-2]) <= 0) 
-			m--;  
-        ch[m++] = a[i];
+		while(m>1 && det(point[m-1]-point[m-2],point[i]-point[m-2]) <= 0) 
+			--m;
+		point[m++] = p[i];  
 	}
-	
-	int tmp = m;
-	for(int i = n - 2 ; i >=0; i--)
+	int k = m;
+	for(int i = n-2; i >= 0; --i)
 	{
-		while(m>tmp && det(ch[m-1]-ch[m-2], a[i]-ch[m-2]) <= 0) 
-			m--;  
-        ch[m++] = a[i];
+		while(m>k && det(point[m-1]-point[m-2],p[i]-point[m-2]) <= 0) 
+			--m;
+		point[m++] = p[i];
 	}
+
+	if(n > 1) --m;
+	point.resize(m);
+	return point;
+}
+
+bool in(Point p0)
+{
+	int w = 0;
+	int n = convex.size();
+	for(int i = 0; i < n; ++i)
+	{
+		if(onLine(p0,convex[i],convex[(i+1)%n]))
+			return 1;
+		if(p0.x == convex[i].x && p0.y == convex[i].y)
+			return 1;
+		int cp = det(convex[(i+1)%n]-convex[i],p0-convex[i]);
+
+		if(cp > 0 && convex[i].y-p0.y <= 0 && convex[(i+1)%n].y-p0.y > 0) w++;
+		if(cp < 0 && convex[i].y-p0.y > 0 && convex[(i+1)%n].y-p0.y <= 0) w--;
+	}
+
+	if(w!= 0) return 1;
+	return 0;
 }
 
 int main()
 {
-
-	while(scanf("%d",&n)!=EOF)
+	while(cin>>P)
 	{
-		memset(a,0,sizeof(a));
+		p.clear();
+		convex.clear();
 		int x,y;
-		for(int i = 0; i < n; ++i)
+		for (int i = 0; i < P; ++i)
 		{
-			read(x);read(y);
-			a[i] = Point(x,y);
+			read(x);
+			read(y);
+			p.push_back(Point(x,y));
 		}
-		sort(a,a+n,cmp);
-		convex_cal();
-		read(n);
-		for(int i = 0; i < n; ++i)
+		convex = convexHull();
+		read(R);
+		while(R--)
 		{
-			bool flag = 0;
 			read(x);read(y);
-			Point tmp = Point(x,y);
-			for(int i = 0; i < m - 1; i++)// m-1 instead of m
-				if(det(ch[i+1]-ch[i],tmp-ch[i]) < 0) 
-				{
-					flag = 1;
-					break;
-				}
-
-			if(flag)
-				printf("outside\n");
-			else
-				printf("inside\n");
+			if( in(Point(x,y)) ) cout<<"inside"<<endl;
+			else cout<<"outside"<<endl;
 		}
 	}
+	return 0;
 }

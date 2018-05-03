@@ -1,75 +1,85 @@
-#include<iostream>
-#include<cstdio>
-#include<cmath>
-#include<cstring>
-#include<bitset>
-#include<vector>
+#include <cmath>
+#include <cstdio>
+#include <cstring>
 using namespace std;
 
-const int maxn = 100000001;
-int bitsieve[(maxn>>5)+3];
-inline bool is_composite(int i)
-{
-	int x = i>>5;
-	int bit = i-(x<<5);
-	return (bitsieve[x] & (1<<bit));
-}
+const int MAXN=10005;  
+int prime[MAXN];  
+bool vis[MAXN];
+int size;  
 
-void bitsieve_mark(int i)
-{
-	int x = i>>5;
-	int bit = x-(i<<5);
-	bitsieve[x] = bitsieve[x] | (1<<bit);
-}
-
-void bitsieve_call()
-{
-	int smaxn = sqrt(maxn)+1;
-	for(int i = 4; i < maxn; i+=2)
-		bitsieve_mark(i);
-	for(int i = 3; i < smaxn; ++i)
-	{
-		if(is_composite(i)) continue;
-		for(int j = i*i, k=i+i; j < maxn; j+=k)
-			bitsieve_mark(j);
-	}
-}
+int Prime(int n)  
+{  
+    int cnt=0;  
+    memset(vis,0,sizeof(vis));  
+    for(int i=2;i<n;i++)  
+    {  
+        if(!vis[i])  
+        prime[cnt++]=i;  
+        for(int j=0;j<cnt&&i*prime[j]<n;j++)  
+        {  
+            vis[i*prime[j]]=1;  
+            if(i%prime[j]==0)//关键   
+            break;  
+        }  
+    }  
+    return cnt;//返回小于n的素数的个数   
+}  
 
 bool isPrime(int x)
 {
-	if(x<2) return 0;
-	return !is_composite(x);
+	if(x<=10000)
+	{
+		if(!vis[x])
+			return 1;
+		return 0;
+	}
+	else
+	{
+		for(int i = 0; i < size; ++i)
+			if(x % prime[i] == 0)
+				return 0;
+		return 1;
+	}
 }
 
 int main()
 {
+	size = Prime(MAXN);
 	int n;
-	bitsieve_call();
+	freopen("462.out","w",stdout);
 	while(scanf("%d",&n)!=EOF)
 	{
-		if(n < 5)
-			cout<<n<<" is not the sum of two primes!"<<endl;
-		else if(n%2)
+		if(n&1)
 		{
-			if(!isPrime(n-2))
-				cout<<n<<" is not the sum of two primes!"<<endl;
+			if(n==1)
+			{
+				printf("%d is not the sum of two primes!\n",n);
+				continue;
+			}
+			if(isPrime(n-2) && n-2 != 1)
+			{
+				printf("%d is the sum of %d and %d.\n",n,2,n-2);
+				continue;
+			}
 			else
-				printf("%d is the sum of 2 and %d.\n",n,n-2);
+			{
+				printf("%d is not the sum of two primes!\n",n);
+				continue;
+			}
 		}
-		else
+		bool flag = 1;
+		for(int i = n/2; i>= 2 ;--i)
 		{
-			bool flag = 1;
-			for(int i = n/2-1; i>=2;--i)
-				if(isPrime(i) && isPrime(n-i))
-				{
-					printf("%d is the sum of %d and %d.\n",n,i,n-i);
-					flag = 0;
-					break;
-				}
-			if(flag)
-				cout<<n<<" is not the sum of two primes!"<<endl;
+			if(isPrime(i) && isPrime(n-i) && i != n-i)
+			{
+				printf("%d is the sum of %d and %d.\n",n,i,n-i);
+				flag = 0;
+				break;
+			}
 		}
+		if(flag)
+			printf("%d is not the sum of two primes!\n",n);
 	}
-
 	return 0;
 }
