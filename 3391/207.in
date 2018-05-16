@@ -1,0 +1,49 @@
+10
+cslab / mmw 2462
+mmw building
+canteen
+hall
+cslab / mmw 1406
+yellow zone
+office
+blue zone
+cslab / mmw 2478
+car park outside
+12
+office:canteen 1 5
+canteen:hall 3 10
+hall:car park outside 5
+car park outside:cslab / mmw 1406 1
+cslab / mmw 1406:car park outside 1
+cslab / mmw 1406:cslab / mmw 2478 1
+cslab / mmw 1406:cslab / mmw 2462 1
+cslab / mmw 2478:cslab / mmw 2462 1
+cslab / mmw 2462:blue zone 3 3
+blue zone:yellow zone 2
+yellow zone:blue zone 2
+yellow zone:office 1 1
+
+10
+yellow zone
+cslab / mmw 2478
+office
+blue zone
+mmw building
+cslab / mmw 2462
+canteen
+cslab / mmw 1406
+hall
+car park outside
+12
+office:canteen 1 3
+canteen:hall 3 10
+hall:car park outside 5
+car park outside:cslab / mmw 1406 1
+cslab / mmw 1406:car park outside 1
+cslab / mmw 1406:cslab / mmw 2478 1
+cslab / mmw 1406:cslab / mmw 2462 4
+cslab / mmw 2478:cslab / mmw 2462 1
+cslab / mmw 2462:blue zone 3 3
+blue zone:yellow zone 2
+yellow zone:blue zone 2
+yellow zone:office 1 1

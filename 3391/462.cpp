@@ -3,12 +3,11 @@
 #include <cstring>
 using namespace std;
 
-const int MAXN=10005;  
-int prime[MAXN];  
-bool vis[MAXN];
-int size;  
+const int MAXN=20000;  
+int prime[MAXN];//保存素数   
+bool vis[MAXN];//初始化   
 
-int Prime(int n)  
+void Prime(int n)  
 {  
     int cnt=0;  
     memset(vis,0,sizeof(vis));  
@@ -23,63 +22,54 @@ int Prime(int n)
             break;  
         }  
     }  
-    return cnt;//返回小于n的素数的个数   
 }  
 
 bool isPrime(int x)
 {
-	if(x<=10000)
-	{
-		if(!vis[x])
-			return 1;
-		return 0;
-	}
-	else
-	{
-		for(int i = 0; i < size; ++i)
-			if(x % prime[i] == 0)
-				return 0;
+	if(x<4)
 		return 1;
+	if((x&1)==0)return 0;
+	int i = 1;
+	while(prime[i]*prime[i] <= x)
+	{
+		if(x % prime[i] == 0)
+			return 0;
+		i++;
 	}
+	return 1;
+}
+
+int getPrime(int x)
+{
+	int mid = x/2 - 1;
+	if (!(mid&1))
+		mid--;
+	for (int i = mid; i > 1; i -= 2)
+		if (isPrime(i) && isPrime(x-i))
+			return i;
+	return 0;
 }
 
 int main()
 {
-	size = Prime(MAXN);
+	Prime(12000);
 	int n;
-	freopen("462.out","w",stdout);
+	//freopen("462.out","w",stdout);
 	while(scanf("%d",&n)!=EOF)
 	{
-		if(n&1)
-		{
-			if(n==1)
-			{
-				printf("%d is not the sum of two primes!\n",n);
-				continue;
-			}
-			if(isPrime(n-2) && n-2 != 1)
-			{
-				printf("%d is the sum of %d and %d.\n",n,2,n-2);
-				continue;
-			}
-			else
-			{
-				printf("%d is not the sum of two primes!\n",n);
-				continue;
-			}
-		}
-		bool flag = 1;
-		for(int i = n/2; i>= 2 ;--i)
-		{
-			if(isPrime(i) && isPrime(n-i) && i != n-i)
-			{
-				printf("%d is the sum of %d and %d.\n",n,i,n-i);
-				flag = 0;
-				break;
-			}
-		}
-		if(flag)
+		if(n <= 4 || n == 6)
 			printf("%d is not the sum of two primes!\n",n);
+		else if(n & 1)
+			if (isPrime(n - 2))
+				printf("%d is the sum of 2 and %d.\n", n,n - 2);
+			else
+				printf("%d is not the sum of two primes!\n", n);
+		else
+		{
+			int res=getPrime(n);
+			printf("%d is the sum of %d and %d.\n", n, res, n - res);
+		}
+
 	}
 	return 0;
 }
